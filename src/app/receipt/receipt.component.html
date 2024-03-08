@@ -1,0 +1,24 @@
+<h1 class="mt-4">&nbsp;
+    <button class="btn-print btn btn-primary" (click)="printPDF()">Cetak</button>
+</h1>
+<mat-card class="shadow p-3 mb-5 ml-0 pl-1 bg-white rounded">
+
+    <div class="print" style="border: 1px solid black;">
+        <div style="text-align: center;">
+            <div class="print" #pdfContent>
+                <div *ngIf="isSkrap">
+                    <div>
+                        <app-receipt-skrap></app-receipt-skrap>
+                    </div>
+
+                </div><br>
+
+                <div *ngIf="isLateks">
+                    <div>
+                        <app-receipt-lateks></app-receipt-lateks>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</mat-card>

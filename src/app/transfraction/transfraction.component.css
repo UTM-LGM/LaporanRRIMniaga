@@ -1,0 +1,21 @@
+.tableheader{
+    background-color: #3e4141;
+    color: white;
+}
+thead .tableheader tr th {
+    color: white;
+}
+th{
+    color: white;
+    font-weight: 300;
+  }
+.content-header {
+    background-color: #f1592a;
+    color: white;
+    /* border-radius: 10px; */
+    align-content: center;
+    padding: 9px;
+    margin-bottom: 5px;
+    height: 45px;
+    
+  }

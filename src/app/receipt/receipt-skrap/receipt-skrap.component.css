@@ -1,0 +1,57 @@
+.myTable {
+    background-color: #ffffff;
+    border-collapse: collapse;
+}
+
+.myTable td,
+.myTable th {
+    padding: 3px;
+    border: 1px solid #000000;
+}
+
+.bg {
+    height: 100%;
+    width: 100%;
+    z-index: -100;
+}
+
+#heading {
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.table1 {
+    background: transparent !important;
+}
+
+.table0 {
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    font-size: 12px;
+    height: auto;
+    width: 100%;
+}
+
+div {
+    width: 90%;
+    margin: auto;
+}
+
+.receipt-number {
+    display: none
+}
+
+@media print {
+    .print {
+        display: block
+    }
+
+    .btn-print {
+        display: none;
+    }
+
+    .receipt-number {
+        display: table-row;
+        /* Show the receipt number when printing */
+    }
+}

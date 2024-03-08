@@ -1,0 +1,74 @@
+<div class="container mb-3">
+  <mat-card class="shadow p-3 mb-5 ml-0 pl-1 bg-white rounded">
+    <div class="content-header  d-flex">
+      <h2 class="">Belian Bulanan</h2>
+    </div><br>
+
+    <mat-card-content>
+
+      <div>
+        <input #query (keyup)="filter(query.value)" type="text" class="form-control" placeholder="Carian Nama..">
+        <!-- <label>Nama</label> -->
+      </div>{{query.value}}<br>
+
+      <div style="text-align: right;">
+        <button class="btn-print button" (click)="displaySelected()" style="margin-right: 10px;">Cetak</button>
+        <button class="btn-print buttonExcel" (click)="exportToExcel(filteredTrans, stocks, 'myData')">Export to
+          Excel</button>
+      </div>
+
+      <span>Bil.rekod transaksi getah dibeli : {{(filteredTrans)?.length}}</span><br><br>
+
+      <div class="table-responsive">
+
+        <table class="table table-striped">
+          <thead>
+            <tr class="tableheader">
+              <th scope="col">Bil</th>
+              <th scope="col">Tarikh</th>
+              <th scope="col">Nama Penjual</th>
+              <th scope="col">NoPatG</th>
+              <th scope="col">NoResit</th>
+              <th scope="col">Lateks(kg) </th>
+              <th scope="col">Sekerap(kg)</th>
+              <th scope="col">DRC</th>
+              <th scope="col">Harga/KG</th>
+              <th scope="col">Jumlah</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let transaction of filteredTrans; let i = index">
+              <td>{{i + 1}}</td>
+              <td>{{transaction.transDate | date:"dd/MM/yyyy 'at' h:mma"}}</td>
+              <td>{{transaction.nama}} </td>
+              <td>{{transaction.noPatG}} </td>
+              <td>{{transaction.noResit}}</td>
+              <td>{{transaction.lateks}} </td>
+              <td>{{transaction.sekerap}} </td>
+              <td>{{transaction.drc}}% </td>
+              <td>{{transaction.unitPrice|number : '1.2-2'}}</td>
+              <td>RM {{transaction.total|number : '1.2-2'}} </td>
+            </tr>
+
+            <tr class="success">
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>{{totalLateks|number : '1.2-2'}}</td>
+              <td>{{totalSekerap|number : '1.2-2'}}</td>
+              <td></td>
+              <td></td>
+              <td>RM {{totalPrice|number : '1.2-2'}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <app-stock></app-stock>
+
+    </mat-card-content>
+
+  </mat-card>
+</div>

@@ -1,0 +1,131 @@
+<div class="container mb-3">
+    <mat-card class="shadow p-3 mb-5 ml-0 pl-1 bg-white rounded">
+
+        <div class="content-header  d-flex">
+            <h2 class="">Belian Pengguna</h2>
+        </div><br>
+
+        <mat-card-content>
+            <div class="row form-group">
+                <div class="col-sm-2">
+                    <label class="label_bm">Tarikh Belian</label><br>
+                </div>
+                <div class="col-sm-2">
+                    <label for="fromDate" class="label_bm">Dari:</label>
+                    <input type="date" id="fromDate" class="form-control" [(ngModel)]="fromDate" name="fromDate"
+                        (change)="filterDate()">
+                </div>
+                <div class="col-sm-2">
+                    <label for="toDate" class="label_bm">Hingga:</label>
+                    <input type="date" id="toDate" class="form-control" [(ngModel)]="toDate" name="toDate"
+                        (change)="filterDate()">
+                </div>
+            </div><br>
+
+
+
+            <div class="row form-group">
+                <div class="col-sm-2">
+                    <label class="label_bm">Pengguna</label><br>
+                </div>
+                <div class="col-sm-4">
+                    <select class="form-select" name="users" id="users" [(ngModel)]="userInput" (change)="filterName()">
+                        <option value="" disabled selected>--Pilih--</option>
+                        <option *ngFor="let user of users" [value]="user.userId">{{ user.username }}</option>
+                    </select>
+                </div>
+            </div><br>
+
+
+            <span>Jumlah pembelian mengikut nama pengguna :</span><br><br>
+
+            <div style="text-align: right;">
+                <!-- <button class="btn-print button" (click)="displaySelected()" style="margin-right: 10px;">Cetak</button> -->
+                <button class="btn-print buttonExcel"
+                    (click)="exportToExcel(filteredTrans, filteredTransUser, 'myData')">Export to Excel</button>
+            </div><br>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr class="tableheader">
+                            <th>Bil.</th>
+                            <th>Tarikh</th>
+                            <th>Nama Pengguna</th>
+                            <th>Jumlah</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let transaction of filteredTrans; let i = index">
+                            <td>{{i + 1}}</td>
+                            <td>{{transaction.tarikh | date:"dd/MM/yyyy"}}</td>
+                            <td>{{transaction.nama}}</td>
+                            <td>RM {{transaction.total|number : '1.2-2'}} </td>
+                        </tr>
+
+                        <tr class="success">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>RM {{totalPrice|number : '1.2-2'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div><br>
+
+
+            <div class="table-responsive">
+
+                <table id="print_area" class="table table-striped">
+                    <thead>
+                        <tr class="tableheader">
+                            <th scope="col">Bil</th>
+                            <th scope="col">Tarikh</th>
+                            <th scope="col">Nama Penjual</th>
+                            <th scope="col">NoPatG</th>
+                            <th scope="col">NoResit</th>
+                            <th scope="col">Lateks(kg) </th>
+                            <th scope="col">Sekerap(kg)</th>
+                            <th scope="col">DRC</th>
+                            <th scope="col">Harga/KG</th>
+                            <th scope="col">Jumlah</th>
+                            <th scope="col">Pengguna</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let transaction of filteredTransUser; let i = index">
+                            <td>{{i + 1}}</td>
+                            <td>{{transaction.transDate | date:"dd/MM/yyyy 'at' h:mma"}}</td>
+                            <td>{{transaction.nama}} </td>
+                            <td>{{transaction.noPatG}} </td>
+                            <td>{{transaction.noResit}}</td>
+                            <td>{{transaction.lateks}} </td>
+                            <td>{{transaction.sekerap}} </td>
+                            <td>{{transaction.drc}}% </td>
+                            <td>{{transaction.unitPrice|number : '1.2-2'}}</td>
+                            <td>RM {{transaction.total|number : '1.2-2'}} </td>
+                            <td>{{transaction.username}} </td>
+                            <td></td>
+                        </tr>
+
+                        <tr class="success">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>{{totalLateks|number : '1.2-2'}}</td>
+                            <td>{{totalSekerap|number : '1.2-2'}}</td>
+                            <td></td>
+                            <td></td>
+                            <td>RM {{totalPrice|number : '1.2-2'}}</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </mat-card-content>
+    </mat-card>
+</div>

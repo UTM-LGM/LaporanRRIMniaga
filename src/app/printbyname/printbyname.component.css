@@ -1,0 +1,141 @@
+.button {
+  background-color: #443834;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #73726f;
+  color: #ffffff;
+}
+
+.buttonExcel {
+  background-color: #1d7a2e;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+
+.centered-container {
+  text-align: center;
+  margin-top: 2px;
+}
+
+.table-container {
+  position: auto;
+  z-index: 0;
+  padding-top: 100px;
+
+  /* top : 200px; */
+}
+
+.watermark {
+  position: absolute;
+  top: 8;
+  left: 0;
+  opacity: 1.0;
+  z-index: 9999;
+  pointer-events: none;
+  width: 100%;
+  height: 50px;
+  /* Adjust the height as needed */
+}
+
+
+.fadedLogo {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.2;
+  /* Add other styles as needed */
+}
+
+.kosong {
+  height: 30px;
+  margin-top: 10px;
+}
+
+@media print {
+
+
+  .watermark {
+    /* Styles for the watermark when printing */
+    position: absolute;
+
+  }
+
+  .kosong {
+    height: 30px;
+    margin-top: 10px;
+  }
+
+  @page {
+    margin: 0.8in;
+    /* Set the margins for all printed pages */
+    margin-bottom: 0;
+    /* Remove the default margin at the bottom of printed pages */
+  }
+
+  @page :first {
+    margin-top: 1.0in;
+    /* Increase the top margin for the first page */
+  }
+
+  @page :after {
+    content: none;
+    /* This will hide any default footer content */
+  }
+
+}
+
+/* @page {
+    margin-left: 0.5in;
+    margin-right: 0.5in;
+    margin-top: 0;
+    margin-bottom: 0.2in;
+  } */
+
+
+/* Insert page numbers on each printed page */
+/* .page::after {
+    content: "Page " counter(page);
+    position: absolute;
+    bottom: 10mm;
+    right: 9mm;
+    font-size: 10px;
+  } */
+
+@media screen {
+
+  .fadedLogo {
+    display: none;
+  }
+
+  .footer {
+    display: none;
+  }
+}
+
+/* .page-number {
+    text-align: right;
+    position: absolute;
+    bottom: 10mm;
+    right: 10mm;
+    font-size: 12px;
+  }
+  
+  .grey-background {
+    background-color: grey;
+    padding: 5px; 
+    color: white;
+    text-align: center
+  } */

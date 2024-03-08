@@ -1,0 +1,76 @@
+<div class="container mb-3">
+  <mat-card class="shadow p-3 mb-5 ml-0 pl-1 bg-white rounded">
+    <div class="content-header  d-flex">
+      <h2>Harga Purata</h2>
+    </div><br>
+
+    <mat-card-content>
+      <form (ngSubmit)="addAveragePrice()">
+
+        <div class="row form-group">
+          <div class="col-sm-2">
+            <label class="label_bm">Jenis Getah <span class="required" style="color:red;">*</span></label>
+          </div>
+          <div class="col-sm-4">
+            <select class="form-select" id="rtypecode" name="rtypecode" [(ngModel)]="scheme.rtypecode" required>
+              <option value="" disabled selected>Pilih</option>
+              <option value="1">Skrap</option>
+              <option value="2">Lateks</option>
+            </select>
+          </div>
+        </div><br>
+
+        <div class="row form-group">
+          <div class="col-sm-2">
+            <label class="label_bm">Bulan</label>
+          </div>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="bulan" name="bulan" [(ngModel)]="scheme.bulan"
+              (focus)="setPreviousMonth()" disabled>
+          </div>
+        </div><br>
+
+
+        <div class="row form-group">
+          <div class="col-sm-2">
+            <label class="label_bm">Tahun </label>
+          </div>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="tahun" name="tahun" [(ngModel)]="scheme.tahun" disabled>
+          </div>
+        </div><br>
+
+
+        <div class="row form-group">
+          <div class="col-sm-2">
+            <label class="label_bm">Harga <span class="required" style="color:red;">*</span></label>
+          </div>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="harga" name="harga" [(ngModel)]="scheme.harga" placeholder="RM 0.00" (input)="addDecimal($event)">
+          </div>
+        </div><br>
+        
+        
+        <div class="row form-group">
+          <div class="col-sm-2">
+            <label class="label_bm">DRC % <span class="required" style="color:red;">*</span></label>
+          </div>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="drc" name="drc" [(ngModel)]="scheme.drc">
+          </div>
+        </div><br>
+
+        <div mat-dialog-actions align="end">
+          <button type="submit" class="btn btn-primary" style="margin-left: 5px;" [disabled]="disablebtn">Simpan</button>
+        </div>
+
+
+      </form>
+
+      <div>
+        <app-view-average-price></app-view-average-price>
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+</div>

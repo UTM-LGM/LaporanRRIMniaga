@@ -1,0 +1,106 @@
+<div class="container mb-3">
+  <mat-card class="shadow p-3 mb-5 ml-0 pl-1 bg-white rounded">
+    <div class="content-header  d-flex">
+      <h2>Maklumat Pembayaran</h2>
+    </div><br>
+
+    <mat-card-content>
+      <!-- Nama Penjual -->
+      <span>
+        <div class="row form-group">
+          <div class="col-sm-2">
+            <label class="label_bm">Nama Penjual</label><br>
+          </div>
+          <div class="col-sm-4">
+            <select class="form-select" [(ngModel)]="selectedSellerName" name="smallHolderId" id="smallHolderId"
+              (change)="filterTapperWithoutPatgPayment($event)">
+              <option value="">Pilih Nama Penjual</option>
+              <option *ngFor="let seller of sellerNames" [value]="seller.smallHolderId">{{ seller.nama }} -
+                {{seller.noPatG }}</option>
+            </select>
+          </div>
+        </div><br>
+      </span>
+
+      <!-- Penoreh -->
+      <div class="row form-group">
+        <div class="col-sm-2">
+          <label class="label_bm">Penoreh</label><br>
+        </div>
+        <div class="col-sm-4">
+          <select class="form-select" [(ngModel)]="dealerPekebunId" name="dealerPekebunId" id="dealerPekebunId"
+            (change)="filterReceiptPayment($event)">
+            <option value="">Pilih Penoreh</option>
+            <option *ngFor="let tapper of tapperNames" [value]="tapper.dealerPekebunId">{{ tapper.tapperWithoutPatg}}
+            </option>
+          </select>
+        </div>
+      </div><br>
+
+
+      <div class="row form-group">
+        <div class="col-sm-2">
+          <label class="label_bm">Jenis Getah</label><br>
+        </div>
+        <div class="col-sm-4">
+          <select (change)="filterRubberType($event)" class="form-select" id="type" name="type" [(ngModel)]="type"
+            required>
+            <option value="" disabled selected>Pilih</option>
+            <option value="Skrap">Skrap</option>
+            <option value="Lateks">Lateks</option>
+          </select>
+        </div>
+      </div><br>
+
+
+      <div style="text-align: right;">
+
+        <button class="btn btn-success" *ngIf="checkedItem" (click)="print()">Jana
+          Resit</button>
+      </div><br>
+
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr class="tableheader">
+              <th scope="col">#</th>
+              <th scope="col">Bil</th>
+              <th scope="col">Tarikh</th>
+              <th scope="col">Jenis Getah</th>
+              <th scope="col">Berat(kg)</th>
+              <th scope="col">Harga </th>
+              <th scope="col">DRC</th>
+              <th scope="col">Jumlah</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let payment of payments; let i = index">
+              <td><mat-checkbox (change)="getSelectedItem()" class="example-margin" [(ngModel)]="payment.checked"
+                  name=""></mat-checkbox></td>
+              <td>{{i+1}} </td>
+              <td>{{payment.transDate | date:"dd/MM/yyyy 'at' h:mma"}}</td>
+              <td>{{payment.type}}</td>
+              <td>{{payment.weight}}</td>
+              <td>RM {{payment.unitPrice|number : '1.2-2'}}</td>
+              <td>{{payment.drc}}% </td>
+              <td>RM {{payment.total|number : '1.2-2'}} </td>
+            </tr>
+
+            <tr class="success">
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>RM {{totalPrice | number : '1.2-2'}}</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+</div>

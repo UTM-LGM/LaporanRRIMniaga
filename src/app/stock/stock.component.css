@@ -1,0 +1,7 @@
+/* In your component's style or global styles */
+.custom-table {
+    max-width: 400px; /* Adjust the maximum width as needed */
+    width: 100%; /* Ensures the table takes up the available width up to the maximum width */
+    margin: 0 auto; /* Center the table on the page, if needed */
+  }
+  

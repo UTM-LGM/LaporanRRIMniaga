@@ -1,0 +1,36 @@
+<div class="col-md-4">
+  <!-- <div class="card" style="width: 28rem;"> -->
+    <!-- Default panel contents -->
+
+    <div class="card-header">
+      Maklumat Stok :
+    </div><br>
+
+<table class="table table-striped custom-table">
+  <tbody>
+    <tr>
+      <th scope="col">Bulan/Tahun :</th>
+      <td>{{stocks?.Month}}/{{stocks?.Year}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Stok Bulan Lepas :</th>
+      <td>{{stocks?.CfStock |number : '1.2-2'}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Belian Semasa :</th>
+      <td>{{stocks?.CurrentPurchase | number : '1.2-2'}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Jualan :</th>
+      <td>{{stocks?.TotalSold |number : '1.2-2'}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Susutan : </th>
+      <td>{{stocks?.Decrease |number : '1.2-2'}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Baki Getah dibawa ke bulan hadapan :</th>
+      <td>{{stocks?.BfStock | number : '1.2-2'}}</td>
+    </tr>
+  </tbody>
+</table>

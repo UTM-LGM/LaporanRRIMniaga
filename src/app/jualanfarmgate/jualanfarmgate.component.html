@@ -1,0 +1,78 @@
+<hr>
+<div class="panel panel-default">
+  <div class="panel-heading">
+   </div>
+   <div class="panel-body">
+        <hr>
+ 
+    <table class="table table-striped">
+      <thead>
+        <tr class="info">
+          <td>Bil.</td>
+          <td>Daerah</td>
+          <td>Tarikh</td>
+          <td>Nama Penjual</td>
+          <td>NoPatG</td>
+          <td>NoResit</td>
+          <td>Lateks (kg)</td>
+          <td>Sekerap (kg)</td>
+          <td>DRC</td>
+          <td>Harga Lateks</td>
+          <td>Harga Skrap</td>
+          <td>Jumlah</td>
+        </tr>
+      </thead>
+  <tr *ngFor="let transaction of filteredTrans; let i = index">
+      <td>{{i + 1}}</td>
+      <td>{{transaction.districtName}}</td>
+      <td>{{transaction.transDate | date:"dd/MM/yyyy 'at' h:mma"}}</td>
+      <td>{{transaction.nama}} </td>
+      <td>{{transaction.noPatG}} </td>
+      <td>{{transaction.noResit}}</td>
+      <td>{{transaction.lateks}} </td>
+      <td>{{transaction.sekerap}} </td>
+      <td>{{transaction.drc}}% </td>
+      <td>RM {{transaction.unitPriceLateks}}</td>
+      <td>RM {{transaction.unitPriceSekerap}}</td>
+      <td>RM {{transaction.total}} </td>
+  </tr>
+  <tr class="success">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>{{totalLateks}}</td>
+    <td>{{totalSekerap}}</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>RM {{totalPrice}}</td>
+  </tr>
+</table>
+<table class="table table-striped">
+  <thead>
+      <tr class="info">
+          <td>Daerah</td>
+          <td>Lateks (kg)</td>
+          <td>Sekerap (kg)</td>
+          <td>Jumlah</td>
+          <td>farmgate Lateks</td>
+          <td>farmgate Sekerap</td>
+        </tr>
+  </thead>  
+    <tr class="success">
+        <td>{{daerah}}</td>
+        <td>{{totalLateks}}</td>
+        <td>{{totalSekerap}}</td>
+        <td>{{totalweight}}</td>
+        <td>RM {{farmgateLateks}}</td>
+        <td>RM {{farmgateSkrap}}</td>
+      </tr>
+    
+</table>
+
+   </div>
+</div>
+

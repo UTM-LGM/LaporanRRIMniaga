@@ -1,0 +1,144 @@
+<div class="container mb-3">
+    <mat-card class="shadow p-3 mb-5 ml-0 pl-1 bg-white rounded">
+
+        <div class="content-header  d-flex">
+            <h2 class="">Belian Pembahagian</h2>
+        </div><br>
+
+        <mat-card-content>
+            <div class="row form-group">
+                <div class="col-sm-2">
+                    <label class="label_bm">Tarikh Belian</label><br>
+                </div>
+                <div class="col-sm-2">
+                    <label for="fromDate" class="label_bm">Dari:</label>
+                    <input type="date" id="fromDate" class="form-control" [(ngModel)]="fromDate" name="fromDate"
+                        (change)="filterDate()">
+                </div>
+                <div class="col-sm-2">
+                    <label for="toDate" class="label_bm">Hingga:</label>
+                    <input type="date" id="toDate" class="form-control" [(ngModel)]="toDate" name="toDate"
+                        (change)="filterDate()">
+                </div>
+            </div>
+            <br>
+
+            <div class="row form-group">
+                <div class="col-sm-2">
+                    <label class="label_bm">Carian berdasarkan</label><br>
+                </div>
+                <div class="col-sm-4">
+                    <select class="form-select" name="SearchBy" id="SearchBy" (change)="changeSearchBy($event)">
+                        <option value="" disabled selected>--Pilih--</option>
+                        <option *ngFor="let search of searchBy" [value]="search">{{search}}
+                        </option>
+                    </select>
+                </div>
+            </div><br>
+
+
+
+            <span *ngIf=" showDate"><br>
+                <div class="row form-group">
+                    <div class="col-sm-2">
+                        <label class="label_bm">Tarikh Belian</label><br>
+                    </div>
+                    <div class="col-sm-2">
+                        <label for="fromDate" class="label_bm">Dari:</label>
+                        <input type="date" id="fromDate" class="form-control" [(ngModel)]="fromDate" name="fromDate"
+                            (change)="filterDate()">
+                    </div>
+                    <div class="col-sm-2">
+                        <label for="toDate" class="label_bm">Hingga:</label>
+                        <input type="date" id="toDate" class="form-control" [(ngModel)]="toDate" name="toDate"
+                            (change)="filterDate()">
+                    </div>
+                </div>
+                <br>
+            </span>
+
+
+            <!-- <span *ngIf=" showName"><br>
+                <div class="row form-group">
+                    <div class="col-sm-2">
+                        <label class="label_bm">Nama Penjual </label><br>
+                    </div>
+                    <div class="col-sm-4">
+                        <input #query (keyup)="filterNama(query.value)" type="text" class="form-control" id="nama"
+                            name="name">
+                    </div>
+                </div><br>
+            </span> -->
+
+            <span *ngIf=" showNoPatg"><br>
+                <div class="row form-group">
+                    <div class="col-sm-2">
+                        <label class="label_bm">No PatG </label><br>
+                    </div>
+                    <div class="col-sm-4">
+                        <input #query (keyup)="filterNoPatG(query.value)" type="text" class="form-control" id="noPatG"
+                            name="noPatG">
+                    </div>
+                </div><br>
+            </span>
+
+
+            <span>Bil. rekod transaksi getah dibeli: 0</span><br><br>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr class="tableheader">
+                            <th>Bil.</th>
+                            <th>Tarikh</th>
+                            <th>NoPatG</th>
+                            <th>NoResit</th>
+                            <th>Jenis Getah</th>
+                            <th>Berat (kg)</th>
+                            <th>DRC</th>
+                            <th>Harga/KG</th>
+                            <th>Pemilik</th>
+                            <th>Bhg Pemilik</th>
+                            <th>Penoreh</th>
+                            <th>Bhg Penoreh</th>
+                            <th>Jumlah</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let transaction of filteredTrans; let i = index">
+                            <td>{{i + 1}}</td>
+                            <td>{{transaction.transDate | date:"dd/MM/yyyy 'at' h:mma"}}</td>
+                            <td>{{transaction.noPatG}} </td>
+                            <td>{{transaction.noResit}}</td>
+                            <td>{{transaction.type}} </td>
+                            <td>{{transaction.weight}} </td>
+                            <td>{{transaction.drc}}% </td>
+                            <td>RM {{transaction.unitPrice|number : '1.2-2'}}</td>
+                            <td>{{transaction.nama}} </td>
+                            <td>RM {{transaction.totalOwner|number : '1.2-2'}} </td>
+                            <td>{{transaction.tapperWithoutPatg}} </td>
+                            <td>RM {{transaction.totalTapper|number : '1.2-2'}} </td>
+                            <td>RM {{transaction.total|number : '1.2-2'}} </td>
+                        </tr>
+                        <tr class="success">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>{{totalweight}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>RM {{totalOwner|number : '1.2-2'}}</td>
+                            <td></td>
+                            <td>RM {{totalTapper|number : '1.2-2'}}</td>
+                            <td>RM {{totalPrice|number : '1.2-2'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </mat-card-content>
+    </mat-card>
+</div>

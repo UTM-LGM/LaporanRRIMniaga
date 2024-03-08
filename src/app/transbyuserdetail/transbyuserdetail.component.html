@@ -1,0 +1,61 @@
+
+      <!-- <div class="content-header  d-flex">
+        <h2 class="">..</h2>
+      </div><br>
+   -->
+      <!-- <mat-card-content> -->
+        
+
+        <!-- <span>Bil.rekod transaksi getah dibeli : {{(filteredTrans)?.length}}</span><br><br> -->
+  
+        <div class="table-responsive">
+          
+        <table  id="print_area" class="table table-striped">
+          <thead>
+            <tr class="tableheader">
+              <th scope="col">Bil</th>
+              <th scope="col">Tarikh</th>
+              <th scope="col">Nama Penjual</th>
+              <th scope="col">NoPatG</th>
+              <th scope="col">NoResit</th>
+              <th scope="col">Lateks(kg) </th>
+              <th scope="col">Sekerap(kg)</th>
+              <th scope="col">DRC</th>
+              <th scope="col">Harga/KG</th>
+              <th scope="col">Jumlah</th>
+              <th scope="col">Pengguna</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let transaction of filteredTrans; let i = index">
+              <td>{{i + 1}}</td>
+              <td>{{transaction.transDate | date:"dd/MM/yyyy 'at' h:mma"}}</td>
+              <td>{{transaction.nama}} </td>
+              <td>{{transaction.noPatG}} </td>
+              <td>{{transaction.noResit}}</td>
+              <td>{{transaction.lateks}} </td>
+              <td>{{transaction.sekerap}} </td>
+              <td>{{transaction.drc}}% </td>
+              <td>{{transaction.unitPrice|number : '1.2-2'}}</td>
+              <td>RM {{transaction.total|number : '1.2-2'}} </td>
+              <td>{{transaction.userid}} </td>
+            </tr>
+  
+            <tr class="success">
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>{{totalLateks|number : '1.2-2'}}</td>
+              <td>{{totalSekerap|number : '1.2-2'}}</td>
+              <td></td>
+              <td></td>
+              <td>RM {{totalPrice|number : '1.2-2'}}</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+
+  
+      <!-- </mat-card-content> -->

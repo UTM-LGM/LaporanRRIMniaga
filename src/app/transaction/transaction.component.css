@@ -1,0 +1,56 @@
+.tableheader{
+    background-color: #3e4141;
+    color: rgb(234, 223, 223);
+}
+thead .tableheader tr th {
+    color: white;
+}
+th{
+  color: white;
+  font-weight: 300;
+}
+.button {
+    background-color: #443834; /* Orange background color */
+    color: #fff; /* White text color */
+    padding: 10px 20px; /* Adjust padding for the button size */
+    border: none; /* Remove default button border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Add a pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth background color transition on hover */
+  }
+
+  .button:hover {
+    background-color: #73726f; 
+    color: #ffffff; 
+  }
+
+  .buttonExcel {
+    background-color: #1d7a2e; 
+    color: #fff; 
+    padding: 10px 20px; /* Adjust padding for the button size */
+    border: none; /* Remove default button border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Add a pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth background color transition on hover */
+  }
+
+  h2 {
+    font-size: 18px; /* Adjust the font size */
+    color: #ffffff; /* Set the text color*/
+    /* text-align: left;  */
+    letter-spacing: 1px; /* Add letter spacing */
+    margin: 0px;
+    /* margin-bottom: 20px;  */
+    /* font-weight: bold; */
+    /* font-family: "Your Chosen Font",  'Helvetica,'; */
+}
+.content-header {
+  background-color: #f1592a;
+  color: white;
+  /* border-radius: 10px; */
+  align-content: center;
+  padding: 9px;
+  margin-bottom: 5px;
+  height: 45px;
+  
+}
